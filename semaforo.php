@@ -59,21 +59,26 @@
     </div>
 
 
-      <div class="row">
+    <div class="row">
 
 
-        <form id="resultForm" action="php/addSemaforo.php" method="POST" style= "display: none;" >
-          <input type="hidden" name="username" value="<?php echo $username; ?>">
-          <input type="hidden" name="best_time" id="best_time_input">
-          <input type="hidden" name="score" id="score_input">
+      <form id="resultForm" action="php/addSemaforo.php" method="POST" >
+        <input type="hidden" name="username" value="<?php echo $username; ?>">
+        <input type="hidden" name="best_time" id="best_time_input">
+        <input type="hidden" name="score" id="score_input">
+        <br>
 
+        <center>
           <div class="col-12">
-            <button type="submit" class="btn btn-outline-light">RISULTATI</button>
+            <button type="submit" class="btn btn-outline-light" id="buttonQuery" style= "visibility: hidden;">RISULTATI</button>
+            <h6 class = "reindirizzamento" id="reind"></h6>
+          
           </div>
-        </form>
-      </div>
+        </center>
+      </form>
     </div>
   </div>
+
 
   <style>
     body {
@@ -94,6 +99,7 @@
     .titolo {
       font-size: 40px;
       margin-top: 15px;
+      color: #FF1801;
     }
 
     .spazio {
@@ -152,6 +158,10 @@
       background: radial-gradient(circle, #333, #111);
       box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.8),
         0px 0px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .reindirizzamneto{
+      font-color:#111111;
     }
 
     #reaction-time,
@@ -320,12 +330,34 @@
       document.getElementById("best_time_input").value = bestTime;
       document.getElementById("score_input").value = score;
       document.getElementById("resultForm").style.display = "block";
+      redirectWithCountdown();
+
     }
 
     document.addEventListener("keydown", stopTimer);
     window.onload = () => {
       document.getElementById("message").innerText = "Premi SPAZIO per iniziare!";
     };
+
+    function redirectWithCountdown() {
+  console.log("Dentro redirectWithCountdown");
+  let timeLeft = 3;
+
+  let interval = setInterval(() => {
+    console.log(`Sarai reindirizzato in ${timeLeft} secondi...`);
+    document.getElementById("reind").innerText = "Restart in " + timeLeft + " secondi...";
+
+    timeLeft--;
+
+    if (timeLeft < 0) {
+      clearInterval(interval); // Ferma il timer
+      document.getElementById("buttonQuery").click(); // Premere il bottone
+    }
+  }, 1000);
+}
+    console.log(document.getElementById(buttonQuery));
+    // Esegui la funzione: redirect dopo 3 secondi a "https://esempio.com"
+
   </script>
 
 </body>

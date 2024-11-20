@@ -58,7 +58,7 @@ $result = $conn->query($queryClassifica);
 
                             <br>
                             <center>
-                                <button type="submit" class="btn btn-primary btn-lg">Large button</button>
+                                <button type="submit" class="btn btn-primary btn-lg">INIZIAMO</button>
                             </center>
 
                     </div>
@@ -73,38 +73,37 @@ $result = $conn->query($queryClassifica);
                         <hr>
                         </hr>
                         <?php
-                            if ($result->num_rows > 0) { ?>
+                        if ($result->num_rows > 0) { ?>
                             <table class="table colorT">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Pilota</th>
-                                    <th scope="col">Tempo</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $i = 0;
-                                // Output dei dati
-                                while ($row = $result->fetch_assoc()) {
-                                    //echo "idGiocatore: " . $row["idG"] . " // Username: " . $row["username"] .  " // Tempo - " . $row["tempo"] . "<br>";
-                                    $i = $i + 1;
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Pilota</th>
+                                        <th scope="col">Tempo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $i = 0;
+                                    // Output dei dati
+                                    while ($row = $result->fetch_assoc()) {
+                                        //echo "idGiocatore: " . $row["idG"] . " // Username: " . $row["username"] .  " // Tempo - " . $row["tempo"] . "<br>";
+                                        $i = $i + 1;
                                     ?>
-                                <tr>
-                                    <th scope="row"><?php echo $i; ?></th>
-                                    <td><?php echo $row["username"]; ?></td>
-                                    <td><?php echo $row["tempo"]; ?></td>
-                                </tr>
+                                        <tr>
+                                            <th scope="row"><?php echo $i; ?></th>
+                                            <td><?php echo $row["username"]; ?></td>
+                                            <td><?php echo $row["tempo"]; ?></td>
+                                        </tr>
+                                    <?php
+                                    } ?>
+                                </tbody>
+                            </table>
                         <?php
-                                }?>
-                                                            </tbody>
-                                                            </table>
-                                                            <?php
-                            }
-                        else {
-                    echo "Nessun risultato trovato.";
-                }
-                ?>
+                        } else {
+                            echo "Nessun risultato trovato.";
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -162,7 +161,7 @@ $result = $conn->query($queryClassifica);
         background-color: rgba(255, 255, 255, 0.8);
     }
 
-    .colorT{
+    .colorT {
         background-color: "#000000";
     }
 
