@@ -24,10 +24,10 @@ $username = "Sql1754148";
 $password = "sqlCaBerta19!";
 $dbname = "Sql1754148_1";
 */
-$servername = "31.11.39.140";
-$username = "Sql1754148";
-$password = "sqlCaBerta19!";
-$dbname = "Sql1754148_3";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "job";
 
 
 
