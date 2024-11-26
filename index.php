@@ -34,7 +34,7 @@ session_start();
             </div>
 
             <div class="col-md-4 col-4">
-                <a href="programmazione.php">
+                <a href="progIndex.php">
                     <div class="cartaBodyProg shadow p-3"></div>
                 </a>
                 <center>
